@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopify Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,102 +21,165 @@
         <!-- Initially transparent -->
         <div class="container mx-auto px-4 flex justify-between items-center">
             <!-- Left: Logo with Icon and Navigation Links -->
-            <div class="flex items-center ml-16">
+            <div class="flex items-center ml-16 md:ml-8 sm:ml-4 ml-2">
                 <!-- Shopify Icon -->
                 <img src="../images/s.jpg" alt="Shopify Icon" class="w-12 h-12">
-
+    
                 <!-- Shopify Title -->
                 <img src="../images/icon.jpg" alt="Shopify Icon" class="w-24 h-20">
-
-                <!-- Navigation Links -->
+    
+                <!-- Navigation Links (hidden on small screens) -->
                 <nav class="hidden md:flex items-center space-x-4 ml-8">
                     <a href="#" class="text-white hover:text-white font-normal">Solutions</a>
                     <a href="#" class="text-white hover:text-white font-normal">Pricing</a>
                     <a href="#" class="text-white hover:text-white font-normal">Resources</a>
                     <a href="#" class="text-white hover:text-white font-normal">Enterprise</a>
                     <a href="#" class="text-white hover:text-white font-normal">What's New</a>
+                    <!-- Login Link -->
+                    
                 </nav>
             </div>
-
+    
+            <!-- Right: Trial Button (visible on all screens) -->
             <div class="flex items-center space-x-8 ml-auto mr-20">
                 <a href="#" class="text-white hover:text-white font-bold">Log in</a>
                 <a href="#"
-                    class="bg-white hover:bg-gray-200 text-black py-2 px-6 rounded-full font-bold border border-gray-300">Start
-                    free trial</a>
+                class="bg-white hover:bg-gray-200 text-black py-2 px-6 rounded-full font-bold border border-gray-300">Start
+                free trial</a>
+    
+                <!-- Burger Menu Button (visible on small screens) -->
+                <button id="burger-btn" class="md:hidden focus:outline-none">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </div>
+    
+        <!-- Mobile Menu (initially hidden) -->
+        <nav id="mobile-menu" class="md:hidden hidden flex flex-col items-center bg-black text-white py-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#" class="text-white hover:text-gray-300 font-normal text-lg transition duration-200">Solutions</a>
+                <a href="#" class="text-white hover:text-gray-300 font-normal text-lg transition duration-200">Pricing</a>
+                <a href="#" class="text-white hover:text-gray-300 font-normal text-lg transition duration-200">Resources</a>
+                <a href="#" class="text-white hover:text-gray-300 font-normal text-lg transition duration-200">Enterprise</a>
+                <a href="#" class="text-white hover:text-gray-300 font-normal text-lg transition duration-200">What's New</a>
+                <a href="#" class="text-white hover:text-gray-300 font-normal text-lg transition duration-200">Log in</a>
+
+            </div>
+            <!-- Login link inside the burger menu -->
+        </nav>
+        
+        
     </header>
+    
+    <script>
+        // Toggle mobile menu visibility on burger button click
+        const burgerBtn = document.getElementById('burger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        burgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    
+    
+    
+    
+    
+    
 
 
 
 
 
-    <section class="relative w-full  h-[120vh] overflow-hidden">
-        <!-- Background Video -->
-        <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
-            <source src="../images/vid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <div class="flex flex-col justify-center items-start w-full h-full bg-black bg-opacity-50 z-10 relative">
+    <section class="relative w-full h-screen overflow-hidden">
+        <!-- Background Video Container -->
+        <div class="absolute inset-0">
+            <video autoplay muted loop class="w-full h-full object-cover">
+                <source src="../images/vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    
+        <!-- Content Overlay -->
+        <div class="relative flex flex-col justify-center items-start w-full h-full bg-black bg-opacity-50 z-10">
             <!-- Left side text: "Be the next" -->
-            <div class="flex items-center pl-8 text-white font-light z-20 ml-12 mt-32">
-                <h1 class="text-8xl">Be the next</h1>
+            <div class="flex items-center text-white font-light z-20 mt-32 w-full">
+                <h1 class="text-5xl md:text-6xl lg:text-8xl pl-4 md:pl-16 lg:pl-32">Be the next</h1>
             </div>
-
-
-            <div class="flex flex-col items-start text-white p-8 z-20 ml-12 mt-2 h-auto">
-                <h2 id="rotatingText" class="text-8xl font-light transition-transform duration-1000 ease-in-out"></h2>
+    
+            <div class="flex flex-col items-start text-white z-20 mt-2 w-full">
+                <h2 id="rotatingText"
+                    class="text-5xl md:text-6xl lg:text-8xl font-light transition-transform duration-1000 ease-in-out pl-4 md:pl-16 lg:pl-32">
+                </h2>
             </div>
-
-
+    
             <!-- Content under "Be the next" -->
-            <div class="flex flex-col items-start text-white p-8 z-20 ml-16 mt-2">
-
-                <p class="text-lg mb-8 ">Dream big, build fast, and grow far on Shopify.</p>
+            <div class="flex flex-col items-start text-white z-20 mt-2 w-full">
+                <p class="text-lg mb-4 pl-4 md:pl-16 lg:pl-32">Dream big, build fast, and grow far on Shopify.</p>
                 <a href="#"
-                    class="bg-white hover:bg-gray-200 text-black py-2 px-6 rounded-full font-bold border border-gray-300">
-                    Start Free Trial</a>
-                <p class="text-lg mb-8">Get 3 days free
-                    then 1 month for $1</p>
+                    class="bg-white hover:bg-gray-200 text-black py-2 px-6 rounded-full font-bold border border-gray-300 ml-4 md:ml-16 lg:ml-32 mb-4">
+                    Start Free Trial
+                </a>
+                <p class="text-lg mb-8 pl-4 md:pl-16 lg:pl-32">Get 3 days free then 1 month for $1</p>
             </div>
         </div>
     </section>
+    
+    <style>
+      /* Ensure no body overflow */
+      body {
+        overflow-x: hidden; /* Prevent horizontal overflow */
+      }
+    </style>
+    
 
 
-    <section
-        class="relative bg-black w-full h-[815vh] flex items-start justify-start overflow-hidden rounded-t-[50px] -mt-12 z-20">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <section class="relative bg-black w-full h-auto md:h-[815vh] flex items-start justify-start overflow-hidden rounded-t-[50px] z-20 -mt-12">
         <div class="text-white text-left p-8 flex flex-col mx-16">
 
-            <p class="text-7xl mb-6 mt-24 font-light " style="word-spacing: -0.09em;">The one commerce platform behind
-                it all.</p>
-            <p class=" text-5xl mb-6 mt-4 font-light" style="word-spacing: -0.09em;">
-                Sell online and in person. Sell locally and globally. Sell direct and wholesale. Sell on desktop and
-                mobile.
+            <p class="text-4xl md:text-7xl mb-6 mt-24 font-light" style="word-spacing: -0.09em;">The one commerce platform behind it all.</p>
+            <p class="text-3xl md:text-5xl mb-6 mt-4 font-light" style="word-spacing: -0.09em;">
+                Sell online and in person. Sell locally and globally. Sell direct and wholesale. Sell on desktop and mobile.
             </p>
+            
 
             <!-- Flex container with three items -->
-            <div class="flex space-x-6 mt-8">
+            <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 mt-8">
 
                 <div
-                    class="w-1/2 h-[24rem] bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 cursor-grab hover:opacity-70">
-                    <img src="../images/1.webp" alt="Feature One Image" class="w-full h-full object-cover">
+                    class="w-full md:w-1/2 h-[24rem] bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 cursor-grab hover:opacity-70">
+                    <img src="../images/1.webp" alt="Feature One Image" class="w-full h-full object-cover ">
                 </div>
-
-                <!--  (Smaller) -->
-                <div
-                    class="w-1/4 h-[24rem] bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 cursor-grab hover:opacity-70">
-
-                    <img src="../images/222.jpg" alt="Feature Two Image" class="w-full h-full object-cover">
+            
+                <!-- (Smaller) -->
+                <div>
+                    class="w-full md:w-1/4 h-[24rem] bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 cursor-grab hover:opacity-70">
+                    <img src="../images/2.webp" alt="Feature Two Image" class="w-full h-full object-cover">
                 </div>
-
-
+            
                 <div
-                    class="w-1/2 h-[24rem] bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 cursor-grab hover:opacity-70">
-
+                    class="w-full md:w-1/2 h-[24rem] bg-gray-800 rounded-lg overflow-hidden transition-colors duration-300 cursor-grab hover:opacity-70">
                     <img src="../images/3.webp" alt="Feature Three Image" class="w-full h-full object-cover">
                 </div>
             </div>
+            
 
 
             <div class="flex flex-col md:flex-row mt-32 space-y-6 md:space-y-0 md:space-x-8">
@@ -134,73 +198,55 @@
                 </div>
             </div>
 
-            <div class="flex space-x-4 mt-14">
-
-                <div class="flex-1 bg-gray-800 rounded-lg overflow-hidden h-80 relative group">
-
-                    <img src="../images/alaska.webp" alt="Feature One Image"
-                        class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0 absolute inset-0">
-
-                    <img src="../images/summer.10PM.webp" alt="Feature One Image on Hover"
-                        class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0">
-
-
-
-
-                </div>
-
-
-                <div class="flex-1 bg-gray-800 rounded-lg overflow-hidden h-80 relative group">
-
-                    <img src="../images/gym.webp" alt="Feature Two Image"
-                        class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0 absolute inset-0">
-                    <!-- Initial image with absolute position -->
-                    <img src="../images/closets.jpg" alt="Feature Two Image on Hover"
-                        class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0">
-
-
-                </div>
-
-                <!-- Item 3 -->
-                <div class="flex-1 bg-gray-800 rounded-lg overflow-hidden h-80 relative group">
-
-                    <img src="../images/mattel.webp" alt="Feature Three Image"
-                        class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0 absolute inset-0">
-                    <!-- Initial image with absolute position -->
-                    <img src="../images/barbie.jpg" alt="Feature Three Image on Hover"
-                        class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0">
-
-                </div>
-            </div>
-
-
-            <div class="flex space-x-4 mt-2 ml-[-30px]"> <!-- Added a negative left margin -->
-                <!-- Flex Item 1 -->
-                <div class="flex-1 bg-black p-6 rounded-lg text-left">
-                    <h3 class="text-2xl font-light mb-4">Get started fast</h3>
-                    <p class="1.25rem font-light text-gray-400">Solo seller Megan Bre Camp started <span
-                            class="font-semibold">Summer Solace Tallow</span> to sell her organic candles and skincare
-                        online and at local farmers markets.</p>
-                </div>
-
-                <!-- Flex Item 2 -->
-                <div class="flex-1 bg-black p-6 rounded-lg text-left">
-                    <h3 class="text-2xl font-light mb-4">Grow as big as you want</h3>
-                    <p class="1.25rem font-light text-gray-400">Athleisure brand <span
-                            class="font-semibold">Gymshark</span> grew from working out of a garage to the global
-                        juggernaut it is today, with $500M+ sales annually.</p>
-                </div>
-
-                <!-- Flex Item 3 -->
-                <div class="flex-1 bg-black p-6 rounded-lg text-left">
-                    <div class="ml-[-10px]"> <!-- Added wrapper div with negative left margin -->
-                        <h3 class="text-2xl font-light mb-4">Raise the bar</h3>
-                        <p class="1.25rem font-light text-gray-400">With the help of Shopify for enterprise, <span
-                                class="font-semibold"> Mattel</span> sells their iconic toys direct to customers around
-                            the world.</p>
+            <div class="flex flex-col md:flex-row md:space-x-4 mt-14 space-y-4 md:space-y-0">
+    
+                <!-- Item 1 -->
+                <div class="flex-1">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden h-80 relative group">
+                        <img src="../images/alaska.webp" alt="Feature One Image"
+                            class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0 absolute inset-0">
+                        <img src="../images/summer.10PM.webp" alt="Feature One Image on Hover"
+                            class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0">
+                    </div>
+                    <div class="mt-4 text-gray-200">
+                        <h3 class="text-xl font-semibold">Get started fast</h3>
+                        <p>Solo seller Megan Bre Camp started <span class="font-bold">Summer Solace Tallow</span> to sell her organic candles and skincare online and at local farmers markets.</p>
                     </div>
                 </div>
+            
+                <!-- Item 2 -->
+                <div class="flex-1">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden h-80 relative group">
+                        <img src="../images/gym.webp" alt="Feature Two Image"
+                            class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0 absolute inset-0">
+                        <img src="../images/closets.jpg" alt="Feature Two Image on Hover"
+                            class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0">
+                    </div>
+                    <div class="mt-4 text-gray-200">
+                        <h3 class="text-xl font-semibold">Grow as big as you want</h3>
+                        <p>Athleisure brand <span class="font-bold">Gymshark</span> grew from working out of a garage to the global juggernaut it is today, with $500M+ sales annually.</p>
+                    </div>
+                </div>
+            
+                <!-- Item 3 -->
+                <div class="flex-1">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden h-80 relative group">
+                        <img src="../images/mattel.webp" alt="Feature Three Image"
+                            class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0 absolute inset-0">
+                        <img src="../images/barbie.jpg" alt="Feature Three Image on Hover"
+                            class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 absolute inset-0">
+                    </div>
+                    <div class="mt-4 text-gray-200">
+                        <h3 class="text-xl font-semibold">Raise the bar</h3>
+                        <p>With the help of Shopify for enterprise, <span class="font-bold">Mattel</span> sells their iconic toys direct to customers around the world.</p>
+                    </div>
+                </div>
+                
             </div>
+            
+
+
+            
             <div>
                 <button
                     class="mx-auto block bg-black text-white border-2 font-semibold border-white py-3 px-6 text-lg rounded-full transition-colors duration-300 hover:bg-white hover:text-black cursor-pointer">
@@ -217,9 +263,12 @@
             <div class="flex flex-col md:flex-row mt-8 space-y-6 md:space-y-0 md:space-x-8">
                 <!-- Flex container for columns -->
                 <!-- Column 1 -->
-                <div class="flex-[1.5] "> <!-- This allows the column to take up equal space -->
-                    <h2 class="text-5xl font-light mb-4 d ">Sell here, there, and everywhere</h2>
+                <div class="flex-[1.5]">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-4">
+                        Sell here, there, and everywhere
+                    </h2>
                 </div>
+                
 
                 <!-- Column 2 -->
                 <div class="flex-1 "> <!-- This allows the column to take up equal space -->
@@ -232,63 +281,62 @@
             </div>
 
 
-            <section class="inner-section p-6 mt-8 rounded-lg shadow-lg h-[80vh] bg-[#022924]" >
-
-
-                <video autoplay muted loop class="w-full  rounded-lg shadow-md h-full">
+            <section class="inner-section p-6 mt-8 rounded-lg shadow-lg h-[80vh] bg-[#022924]">
+                <video autoplay muted loop class="w-full h-full rounded-lg shadow-md object-cover">
                     <source src="../images/01.webm" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-
-
             </section>
+            
 
 
 
             <div class="flex justify-between items-center h-full space-x-4">
-                <!-- Item 1 -->
-                <div id="image-container"
-                    class="flex-1 h-[600px] p-4 rounded-lg shadow-md mt-4 overflow-hidden relative bg-[#022924]"
-                    >
-                    <img src="../images/pos.webp" alt="Image" id="moving-image"
-                        class="w-full h-full object-cover rounded-lg transition-transform duration-300">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-opacity-75">
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <!-- Item 1 -->
+                    <div id="image-container"
+                        class="flex-1 h-[600px] p-4 rounded-lg shadow-md mt-4 overflow-hidden relative bg-[#022924]">
+                        <img src="../images/pos.webp" alt="Image" id="moving-image"
+                            class="w-full h-full object-cover rounded-lg transition-transform duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-opacity-75">
+                            <h3 class="text-2xl font-light mb-4">In-person point of sale</h3>
+                            <p class="text-base font-light text-gray-400">
+                                Sell face to face and keep offline and online sales in sync with <span
+                                    class="font-semibold">Shopify POS.</span> 
+                            </p>
+                        </div>
+                    </div>
+                
+                    <!-- Item 2 -->
+                    <div class="flex-1 h-[600px] p-4 rounded-lg shadow-md mt-4 bg-[#022924]">
+                        <div class="flex justify-center mb-4 -mt-8">
+                            <video autoplay muted loop class="max-w-full h-auto rounded-lg">
+                                <source src="../images/mid.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                         <h3 class="text-2xl font-light mb-4">In-person point of sale</h3>
-
-                        <p class="1.25rem font-light text-gray-400">
+                        <p class="text-base font-light text-gray-400">
                             Sell face to face and keep offline and online sales in sync with <span
-                                class="font-semibold"> Shopify POS.</span> </p>
-
+                                class="font-semibold">Shopify POS.</span>
+                        </p>
+                    </div>
+                
+                    <!-- Item 3 -->
+                    <div id="image-container"
+                        class="flex-1 h-[600px] p-4 rounded-lg shadow-md mt-4 overflow-hidden relative bg-[#022924]">
+                        <img src="../images/pos.webp" alt="Image" id="moving-image"
+                            class="w-full h-full object-cover rounded-lg transition-transform duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-opacity-75">
+                            <h3 class="text-2xl font-light mb-4">In-person point of sale</h3>
+                            <p class="text-base font-light text-gray-400">
+                                Sell face to face and keep offline and online sales in sync with <span
+                                    class="font-semibold">Shopify POS.</span> 
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-
-
-
-
-                <!-- Item 2 -->
-                <div class="flex-1 h-[600px] p-4 rounded-lg shadow-md mt-4 bg-[#022924]" >
-                    <div class="flex justify-center mb-4 -mt-8"> <!-- Center the video and add negative margin-top -->
-                        <video autoplay muted loop class="max-w-full h-auto rounded-lg">
-                            <source src="../images/mid.webm" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <h3 class="text-2xl font-light mb-4">In-person point of sale</h3>
-                    <p class="text-base font-light text-gray-400"> <!-- Changed class from 1.25rem to text-base -->
-                        Sell face to face and keep offline and online sales in sync with <span
-                            class="font-semibold">Shopify POS.</span>
-                    </p>
-                </div>
-
-
-
-
-                <!-- Item 3 -->
-                <div class="flex-1 h-[600px] p-4 rounded-lg shadow-md mt-4 bg-[#022924]" >
-
-
-                </div>
+                
 
 
 
@@ -300,25 +348,24 @@
 
 
             <div class="flex items-center mt-32 ml-0">
-                <p class="text-sky-400/100 text-lg ">Direct and wholesale</p>
+                <p class="text-sky-400/100 text-base md:text-lg">Direct and wholesale</p>
             </div>
-
-
+            
             <div class="flex flex-col md:flex-row mt-8 space-y-6 md:space-y-0 md:space-x-8">
-
-                <div class="flex-[1.5] ">
-                    <h2 class="text-5xl font-light mb-4 d ">Find your forever customers</h2>
+                <div class="flex-[1.5]">
+                    <h2 class="text-3xl md:text-5xl font-light mb-4">Find your forever customers</h2>
                 </div>
             </div>
+            
             <!--left and right flex boxes-->
-            <div class="flex space-x-4">
+            <div class="flex flex-col md:flex-row space-x-0 md:space-x-4">
                 <!-- First item -->
-                <div class="flex-1 p-4 h-[650px] rounded-lg bg-[#042f2e] relative">
+                <div class="flex-1 p-4 mb-4 md:mb-0 h-auto md:h-[650px] rounded-lg bg-[#042f2e] relative overflow-hidden">
                     <video autoplay muted loop class="w-full h-full rounded-lg -mt-16">
                         <source src="../images/left.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
-
+            
                     <!-- Text content with absolute positioning -->
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-[#042f2e] bg-opacity-75 rounded-b-lg">
                         <h3 class="text-2xl font-light text-white mb-2">Reach the right customers for less</h3>
@@ -327,40 +374,35 @@
                             integrated marketing tools and
                             <a href="#" class="underline hover:no-underline text-white">insightful analytics.</a>
                         </p>
-
                     </div>
                 </div>
-
+            
                 <!-- Second item -->
-                <div class="flex-1 p-4 h-[650px] rounded-lg bg-[#042f2e]">
+                <div class="flex-1 p-4 mb-4 md:mb-0 h-auto md:h-[650px] rounded-lg bg-[#042f2e] relative overflow-hidden">
                     <video autoplay muted loop class="w-full h-full rounded-lg -mt-24">
                         <source src="../images/right.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-[#042f2e] bg-opacity-75 rounded-b-lg"></div>
-                    <h3 class="text-2xl font-light text-white mb-2">Unlock new growth with B2B</h3>
-                    <p class="text-base font-light text-gray-400">
-                        Create custom experiences for wholesale buyers with flexible pricing, discounts, and payment
-                        terms.
-                    </p>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-[#042f2e] bg-opacity-75 rounded-b-lg">
+                        <h3 class="text-2xl font-light text-white mb-2">Unlock new growth with B2B</h3>
+                        <p class="text-base font-light text-gray-400">
+                            Create custom experiences for wholesale buyers with flexible pricing, discounts, and payment terms.
+                        </p>
+                    </div>
                 </div>
             </div>
+            
 
             <div class="flex items-center mt-32 ml-0">
-                <p class="text-sky-400/100 text-lg ">Local and global</p>
+                <p class="text-sky-400/100 text-base md:text-lg">Local and global</p>
             </div>
-
-
+            
             <div class="flex flex-col md:flex-row mt-8 space-y-6 md:space-y-0 md:space-x-8">
-
-                <div class="flex-[1.5] ">
-                    <h2 class="text-5xl font-light mb-4 d ">Grow around the world</h2>
+                <div class="flex-[1.5]">
+                    <h2 class="text-3xl md:text-5xl font-light mb-4">Grow around the world</h2>
                 </div>
-
-
-
-
             </div>
+            
 
 
 
@@ -376,23 +418,22 @@
             </section>
 
             <div class="flex items-center mt-32 ml-0">
-                <p class="text-sky-400/100 text-lg ">Desktop and mobile</p>
+                <p class="text-sky-400/100 text-base md:text-lg">Desktop and mobile</p>
             </div>
-
-
+            
             <div class="flex flex-col md:flex-row mt-8 space-y-6 md:space-y-0 md:space-x-8">
-
-                <div class="flex-[1.5] ">
-                    <h2 class="text-5xl font-light mb-4 d ">Take care of business</h2>
+                <div class="flex-[1.5]">
+                    <h2 class="text-3xl md:text-5xl font-light mb-4">Take care of business</h2>
                 </div>
             </div>
+            
             <!--left and right flex boxes-->
-            <div class="flex space-x-4">
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <!-- First item -->
                 <div class="flex-1 p-4 h-[650px] rounded-lg bg-[#042f2e] relative">
                     <img src="../images/2left.png" alt="Description of the image"
                         class="w-full h-full object-left rounded-lg -mt-16 mr-0">
-
+            
                     <!-- Text content with absolute positioning -->
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-[#042f2e] bg-opacity-75 rounded-b-lg">
                         <h3 class="text-2xl font-light text-white mb-2">Reach the right customers for less</h3>
@@ -401,17 +442,14 @@
                             integrated marketing tools and
                             <a href="#" class="underline hover:no-underline text-white">insightful analytics.</a>
                         </p>
-
                     </div>
                 </div>
-
-
-
+            
                 <!-- Second item -->
                 <div class="flex-1 p-4 h-[650px] rounded-lg bg-[#042f2e] relative">
                     <img src="../images/2right.png" alt="Image" id="moving-image"
-                        class="w-[700px] h-[500px] object-cover rounded-lg transition-transform duration-300 mx-auto">
-
+                        class="w-full h-full object-cover rounded-lg transition-transform duration-300 mx-auto">
+            
                     <!-- Text content with absolute positioning -->
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-[#042f2e] bg-opacity-75 rounded-b-lg">
                         <h3 class="text-2xl font-light text-white mb-2">Unlock new growth with B2B</h3>
@@ -421,122 +459,128 @@
                         </p>
                     </div>
                 </div>
-
             </div>
+            
 
 
 
         </div>
 
     </section>
-    <section
-        class="relative bg-slate-900 w-full h-[300vh] flex flex-col items-start justify-start overflow-hidden rounded-t-[50px] -mt-20 z-20">
+   
+   <!--Apps-->
 
-        <!-- Scrolling icons -->
-        <div class="flex flex-col w-1/2 ml-24 mt-16">
-            <h2 class="text-5xl text-white font-light mb-4">Apps for anything else</h2>
-            <p class="text-2xl font-light text-gray-400 mt-7">
-                Shopify offers all the essentials out of the box, but if your business calls for something extra you
-                have
-                <a href="#" class="underline hover:no-underline text-white">the Shopify App Store</a>—with 13,000+
-                commerce apps for whatever specialized features you might need.
-            </p>
-        </div>
+   <section class="relative bg-slate-900 w-full h-auto md:h-[300vh] flex flex-col items-start justify-start overflow-hidden rounded-t-[50px] z-10 -mt-12">
+   <!-- Scrolling icons -->
+   <div class="flex flex-col w-full md:w-1/2 ml-4 md:ml-24 mt-16">
+       <h2 class="text-3xl md:text-5xl text-white font-light mb-4">Apps for anything else</h2>
+       <p class="text-lg md:text-2xl font-light text-gray-400 mt-7">
+           Shopify offers all the essentials out of the box, but if your business calls for something extra you
+           have
+           <a href="#" class="underline hover:no-underline text-white">the Shopify App Store</a>—with 13,000+
+           commerce apps for whatever specialized features you might need.
+       </p>
+   </div>
 
-        <img src="../images/icons.png" alt="Icons" class="max-w-full h-100 object-contain mt-30 animate-loop-scroll">
+   <img src="../images/icons.png" alt="Icons"
+       class="max-w-full h-auto object-contain mt-10 md:mt-30 animate-loop-scroll">
 
-        <!-- New content directly below the image -->
-        <div class="flex flex-col w-1/2 ml-24 mt-8">
-            <h2 class="text-5xl text-white font-light mb-4">By developers, for developers</h2>
-            <p class="text-2xl font-light text-gray-400 mt-7">
+   <!-- New content directly below the image -->
+   <div class="flex flex-col w-full md:w-1/2 ml-4 md:ml-24 mt-8">
+       <h2 class="text-3xl md:text-5xl text-white font-light mb-4">By developers, for developers</h2>
+       <p class="text-lg md:text-2xl font-light text-gray-400 mt-7">
+           <a href="#" class="underline hover:no-underline text-white"> APIs, primitives, and tools </a> empower
+           devs and
+           <a href="#" class="underline hover:no-underline text-white"> partners </a> to build the apps, themes,
+           and custom storefronts businesses are looking for.
+       </p>
+   </div>
 
-                <a href="#" class="underline hover:no-underline text-white"> APIs, primitives, and tools </a>empower
-                devs and <a href="#" class="underline hover:no-underline text-white"> partners </a> to build the apps,
-                themes, and custom storefronts businesses are looking for.
-            </p>
-        </div>
+   <section
+       class="relative w-[90%] h-[80vh] flex flex-wrap items-center justify-center overflow-hidden rounded-[50px] mt-12 z-20 mx-auto"
+       style="background-image: url('../images/bg.png'); background-size: cover; background-position: center;">
+       <div class="relative flex flex-wrap items-center justify-center space-x-0.5 h-auto">
+           <!-- First Image -->
+           <div class="flex-shrink-0 w-[25vw] h-[35vh] mx-4 flex-col justify-center items-center">
+               <img src="../images/3left.webp" alt="Image 1"
+                   class="w-full h-full object-cover rounded-lg shadow-md border-8 border-[#312e81]" />
+           </div>
 
+           <!-- Second Image -->
+           <div class="flex-shrink-0 w-[40vw] h-[45vh] mx-4 flex-col justify-center items-center">
+               <img src="../images/3mid.png" alt="Image 2"
+                   class="w-full h-full object-cover rounded-lg shadow-md border-8 border-[#312e81]" />
+           </div>
 
+           <!-- Third Image -->
+           <div class="flex-shrink-0 w-[30vw] h-[35vh] mx-4 flex-col justify-center items-center">
+               <img src="../images/3right.png" alt="Image 3"
+                   class="w-full h-full object-cover rounded-lg shadow-md border-8 border-[#312e81]" />
+           </div>
+       </div>
 
+       <!-- Icons and Buttons -->
+       <div class="h-auto relative flex justify-center items-center space-x-4 mt-8">
+           <!-- Icon 1 -->
+           <div class="w-[5vw] h-[5vh] absolute bg-teal-500 rounded-full hover:brightness-125 transition-all duration-300"
+               style="left: 20%; top: 30%;">
+               <img src="../images/ileft.png" alt="Icon 1" class="w-full h-full object-contain" />
+           </div>
 
-        <section
-            class="relative w-[90%] h-[80vh] flex items-center justify-center overflow-hidden rounded-[50px] mt-12 z-20 mx-auto"
-            style=" background-image: url('../images/bg.png'); background-size: cover; background-position: center;">
+           <!-- Icon 2 -->
+           <div class="w-[5vw] h-[5vh] absolute bg-violet-900 rounded-full hover:brightness-125 transition-all duration-300"
+               style="right: 20%; top: 10%;">
+               <img src="../images/iright.png" alt="Icon 2" class="w-full h-full object-contain" />
+           </div>
+       </div>
 
-            <div class="h-[409px] relative flex items-center justify-center space-x-0.5">
-                <!-- First Image -->
-                <div class="w-[270px] h-[320px] mx-4 flex-col justify-center items-center inline-flex">
-                    <img src="../images/3left.webp" alt="Image 1"
-                        class="w-full h-full object-cover rounded-lg shadow-md border-8 border-[#312e81]">
-                </div>
+       <!-- Buttons -->
+       <div class="relative h-auto mt-8 flex justify-around items-center space-x-4 w-full">
+           <div
+               class="w-[10vw] h-[6vh] bg-indigo-900 rounded-lg border border-[#2c2c2c] flex justify-center items-center">
+               <div class="text-neutral-100 text-base font-normal">Button</div>
+           </div>
 
-                <!-- Second Image -->
-                <div class="w-[700px] h-[450px] mx-4 flex-col justify-center items-center inline-flex">
-                    <img src="../images/3mid.png" alt="Image 2"
-                        class="w-full h-full object-cover rounded-lg shadow-md border-8 border-[#312e81]">
-                </div>
+           <div
+               class="w-[8vw] h-[6vh] bg-indigo-900 rounded-lg border border-[#2c2c2c] flex justify-center items-center">
+               <div class="text-neutral-100 text-base font-normal">Button</div>
+           </div>
 
-                <!-- Third Image -->
-                <div class="w-[400px] h-[320px] mx-4 flex-col justify-center items-center inline-flex">
-                    <img src="../images/3right.png" alt="Image 3"
-                        class="w-full h-full object-cover rounded-lg shadow-md border-8 border-[#312e81]">
-                </div>
-            </div>
-
-            <div class="h-[409px] bg-[#444444]">
-                <div
-                    class="w-[93px] h-[88px] left-[230px] top-[258px] absolute bg-teal-500 rounded-full hover:brightness-125 transition-all duration-300">
-                    <img src="../images/ileft.png" alt="Icon 1" class="w-full h-full object-contain">
-                </div>
-                <div
-                    class="w-[93px] h-[88px] left-[1110px] top-[50px] absolute bg-violet-900 rounded-full hover:brightness-125 transition-all duration-300">
-                    <img src="../images/iright.png" alt="Icon 2" class="w-60 h-full object-contain">
-                </div>
-            </div>
-
-
-            <div class="h-[515px] bg-[#444444]">
-                <div
-                    class="w-[258px] h-[47px] p-3 left-[526px] top-[20px] absolute bg-indigo-900 rounded-lg border border-[#2c2c2c] justify-center items-center gap-2 inline-flex">
-                    <div class="w-4 h-4 p-[1.33px] justify-center items-center flex"></div>
-                    <div class="text-neutral-100 text-base font-normal font-['Inter'] leading-none">Button</div>
-                </div>
-                <div
-                    class="w-[181px] h-[47px] p-3 left-[62px] top-[84px] absolute bg-indigo-900 rounded-lg border border-[#2c2c2c] justify-center items-center gap-2 inline-flex">
-                    <div class="w-4 h-4 p-[1.33px] justify-center items-center flex"></div>
-                    <div class="text-neutral-100 text-base font-normal font-['Inter'] leading-none">Button</div>
-                </div>
-                <div
-                    class="w-[122px] h-[47px] p-3 left-[1245px] top-[84px] absolute bg-indigo-900 rounded-lg border border-[#2c2c2c] justify-center items-center gap-2 inline-flex">
-                    <div class="w-4 h-4 p-[1.33px] justify-center items-center flex"></div>
-                    <div class="text-neutral-100 text-base font-normal font-['Inter'] leading-none">Button</div>
-                </div>
-            </div>
-        </section>
-
-    </section>
+           <div
+               class="w-[6vw] h-[6vh] bg-indigo-900 rounded-lg border border-[#2c2c2c] flex justify-center items-center">
+               <div class="text-neutral-100 text-base font-normal">Button</div>
+           </div>
+       </div>
+   </section>
 
 
-    <section class="p-4 w-full h-[330vh] rounded-t-[50px] -mt-20 z-20 relative bg-[#022924] ">
+</section>
+
+<!--there is no-->
+    <section class="p-4 w-full h-[330vh] rounded-t-[50px] -mt-20 z-20 relative bg-[#022924]">
         <div class="container mx-auto p-4">
             <!-- First container with one item -->
-            <div class="p-4 mb-4 flex justify-center items-center h-[200px] -mt-10">
-                <p class="text-white text-7xl mb-6 mt-24 font-light text-center" style="word-spacing: -0.09em;">
+            <div class="p-4 mb-4 flex justify-center items-center h-[200px] -mt-10 md:h-[250px] md:-mt-12">
+                <p class="text-white text-4xl sm:text-5xl md:text-7xl mb-6 mt-12 sm:mt-16 md:mt-24 font-light text-center leading-tight sm:leading-snug md:leading-normal"
+                    style="word-spacing: -0.09em;">
                     There’s no better place <br> for you to build
                 </p>
             </div>
 
 
-
             <!-- Second container with two items of equal size -->
-            <div class="flex justify-between p-4 space-x-4 mx-8">
+            <div class="flex flex-col md:flex-row justify-between p-4 space-y-4 md:space-y-0 md:space-x-4 mx-8">
                 <!-- Item 2 with an image -->
-                <div class="text-white p-4 flex-1 flex justify-center items-center ">
+                <div class="text-white p-4 flex-1 flex justify-center items-center">
                     <div class="bg-[#022924] text-white py-12 px-8">
                         <!-- Main Title -->
-                        <div class="text-left mb-8">
-                            <h1 class="text-[48px] font-light leading-tight">The world's best-converting checkout</h1>
+                        <div class="text-left mb-6 sm:mb-8">
+                            <h1
+                                class="text-[28px] sm:text-[36px] md:text-[48px] font-light leading-snug sm:leading-normal md:leading-tight">
+                                The world's best-converting checkout
+                            </h1>
                         </div>
+
 
                         <!-- Statistics Section -->
                         <div class="grid grid-cols-2 gap-8">
@@ -549,7 +593,6 @@
                                     </svg>
                                     <div class="text-sm text-green-300 font-medium">HIGHER CONVERSIONS</div>
                                 </div>
-
                                 <div class="text-[72px] font-light mt-4">15%</div>
                             </div>
 
@@ -574,35 +617,31 @@
                                 converts 15% higher on average than other commerce platforms and exposes your brand to
                                 150 million buy-ready shoppers.
                             </p>
-
                         </div>
                         <p class="mt-4 text-sm text-gray-400">
                             Based on external study with a Big Three global consulting firm in April, 2023.
                         </p>
                     </div>
-
                 </div>
 
                 <!-- Item 3 with an image -->
-                <div class="text-white p-4 flex-1 flex justify-center items-center   h-[600px]">
-                    <!-- <img src="../images/pps.png" alt="Item 3 Image" class="w-fit max-h-20vh object-contain" /> -->
-
-                    <div
-                        class="w-[700px] h-[550px] px-[58.62px] py-[68.75px] left-[710px] top-[220px] absolute flex-col justify-center items-center inline-flex">
-                        <img src="../images/pps.png" alt="Item 3 Image" class="w-fit max-h-20vh object-contain" />
-                    </div>
-                    <div
-                        class="w-[600px] h-[350px] px-[27.62px] py-[40.62px] left-[860px] top-[400px] absolute flex-col justify-center items-center inline-flex">
-                        <img src="../images/ppsf.png" alt="Item 3 Image" class="w-fit max-h-20vh object-contain" />
+                <div class="text-white p-4 flex-1 flex justify-center items-center h-[600px] relative">
+                    <!-- First Image (Background) -->
+                    <div class="w-full h-full relative flex justify-center items-center">
+                        <img src="../images/pps.png" alt="Item 1 Image" class="w-full h-auto object-contain" />
                     </div>
 
+                    <!-- Second Image (Overlay) -->
+                    <div class="absolute top-[220px] md:top-[40%] left-1/2 transform -translate-x-1/2">
+                        <img src="../images/ppsf.png" alt="Item 2 Image"
+                            class="w-[90vw] md:w-[600px] h-auto object-contain" />
+                    </div>
                 </div>
+
             </div>
-
-
         </div>
 
-        <!--under the globe-->
+        <!-- Under the globe -->
         <section>
             <div class="flex flex-col w-30 ml-24 mt-8">
                 <h2 class="text-5xl text-white font-light mb-4">Shopify keeps you at the cutting edge</h2>
@@ -613,45 +652,40 @@
             </div>
 
             <!-- Flexbox Container -->
-            <div class="flex mt-8 mx-16 space-x-4 h-[70vh] ">
-
-
-
-                <div class="w-2/3 rounded-lg bg-black p-4 overflow-hidden">
-                    <div class="w-2/3 rounded-lg bg-black p-4 overflow-hidden">
-                        <div class="relative w-full">
-                            <!-- Slider Container -->
-                            <div class="flex transition-transform duration-700 ease-in-out" id="slider">
-                                <!-- Image 1 -->
-                                <video autoplay muted loop class="w-full  rounded-lg shadow-md h-full">
-                                    <source src="../images/01.webm" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <!-- Image 2 -->
-                                <video autoplay muted loop class="w-full  rounded-lg shadow-md h-full">
-                                    <source src="../images/01.webm" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <!-- Image 3 -->
-                                <video autoplay muted loop class="w-full  rounded-lg shadow-md h-full">
-                                    <source src="../images/01.webm" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-
-                            <!-- Left Arrow -->
-                            <button id="prev"
-                                class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
-                                &#10094;
-                            </button>
-                            <!-- Right Arrow -->
-                            <button id="next"
-                                class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
-                                &#10095;
-                            </button>
+            <div class="flex flex-col md:flex-row mt-8 mx-16 md:space-x-4 space-y-4 md:space-y-0 h-auto md:h-[70vh]">
+                <div class="w-full md:w-2/3 rounded-lg bg-black p-4 overflow-hidden">
+                    <div class="relative w-full">
+                        <!-- Slider Container -->
+                        <div class="flex transition-transform duration-700 ease-in-out" id="slider">
+                            <!-- Image 1 -->
+                            <video autoplay muted loop class="w-full rounded-lg shadow-md h-full">
+                                <source src="../images/01.webm" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Image 2 -->
+                            <video autoplay muted loop class="w-full rounded-lg shadow-md h-full">
+                                <source src="../images/01.webm" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Image 3 -->
+                            <video autoplay muted loop class="w-full rounded-lg shadow-md h-full">
+                                <source src="../images/01.webm" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
+
+                        <!-- Left Arrow -->
+                        <button id="prev"
+                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+                            &#10094;
+                        </button>
+                        <!-- Right Arrow -->
+                        <button id="next"
+                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+                            &#10095;
+                        </button>
                     </div>
-                    <section class="bg-black text-white p-6 rounded-lg">
+                    <section class="bg-black text-white p-6 rounded-lg mt-4">
                         <h2 class="text-3xl font-light mb-2 flex items-center">
                             AI designed for commerce
                             <span class="ml-2 text-purple-500">&#10024;</span> <!-- Symbol icon -->
@@ -662,50 +696,19 @@
                             Shopify.
                         </p>
                     </section>
-
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-                <div class="w-1/3 rounded-lg  bg-gray-500 p-4 mr-2">Left Item</div>
+                <div class="w-full md:w-1/3 rounded-lg bg-gray-500 p-4">Left Item</div>
             </div>
 
-
-
-            <div class="flex space-x-4 mt-16 mx-16">
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-16 mx-16">
                 <!-- First item -->
-                <div class="flex-1 p-4 h-[70vh] rounded-lg bg-[#042f2e] relative">
-
-                </div>
+                <div class="flex-1 p-4 h-[70vh] rounded-lg bg-[#042f2e] relative"></div>
 
                 <!-- Second item -->
-                <div class="flex-1 p-4 h-[70vh] rounded-lg bg-[#042f2e] relative">
-
-                </div>
-
+                <div class="flex-1 p-4 h-[70vh] rounded-lg bg-[#042f2e] relative"></div>
             </div>
-
-
-            <!-- black bg last one -->
-
-
-
-
-
-
         </section>
-
-
-
     </section>
 
     <section class="p-4 w-full h-[130vh] rounded-t-[50px] -mt-20 z-20 relative bg-[#000000] ">
@@ -713,33 +716,29 @@
         <div class="container mx-auto p-4">
             <!-- First container with one item -->
             <div class="p-4 mb-4 flex justify-center items-center h-[200px] -mt-10">
-                <p class="text-white text-7xl mb-6 mt-24 font-light text-center" style="word-spacing: -0.09em;">
+                <p class="text-white text-4xl md:text-7xl mb-6 mt-24 font-light text-center" style="word-spacing: -0.09em;">
                     Start selling in no time
                 </p>
             </div>
+            
 
 
 
             <!-- Second container with two items of equal size -->
-            <div class="flex justify-between p-4 space-x-4 mx-8 bg-black h-[80vh]">
-
-                <div class="text-white p-4 flex-1 flex justify-center items-center bg-black rounded-lg ">
-
-                    <div
-                        class="w-[350px] h-[460px] px-[26.25px] py-[37.50px] left-[390px] top-[320px] absolute flex-col justify-center items-center inline-flex ">
-                        <img src="../images/laptop.webp" alt="Item 3 Image"
-                            class="w-fit max-h-20vh object-contain rounded-lg" />
+            <div class="flex flex-col md:flex-row justify-between p-4 space-y-4 md:space-x-4 mx-8 bg-black h-auto md:h-[80vh]">
+    
+                <!-- Left Section with Images -->
+                <div class="text-white p-4 flex-1 flex flex-col md:flex-row justify-center items-center bg-black rounded-lg relative space-y-4 md:space-x-4">
+                    <div class="text-white p-4 flex-1 flex justify-center items-center bg-black rounded-lg relative space-x-4">
+                        <img src="../images/laptop.webp" alt="Left Image" class="w-1/2 max-w-xs h-auto object-cover">
+                        <img src="../images/bluejeans.webp" alt="Right Image" class="w-1/2 max-w-xs h-auto object-cover relative top-4">
                     </div>
-                    <div
-                        class="w-[350px] h-[460px] px-[26.38px] py-[37.88px] left-[80px] top-[200px] absolute flex-col justify-center items-center inline-flex ">
-                        <img src="../images/bluejeans.webp" alt="Item 3 Image"
-                            class="w-fit max-h-20vh object-contain rounded-lg" />
-                    </div>
-
-
+                    
+                    
+                    
                 </div>
-
-
+                
+                <!-- Right Section with Steps -->
                 <div class="text-white p-4 flex-1 flex justify-left items-center bg-black">
                     <!-- Steps Container -->
                     <div class="space-y-8 text-left">
@@ -764,17 +763,16 @@
                                 <span class="text-5xl font-light">Set up payments</span>
                             </div>
                         </div>
-
-
+            
                         <!-- Button -->
-                        <button
-                            class="mt-24 bg-white text-black px-6 py-2 rounded-full text-lg font-semibold shadow-lg">
+                        <button class="mt-24 bg-white text-black px-6 py-2 rounded-full text-lg font-semibold shadow-lg">
                             Take your shot
                         </button>
                     </div>
                 </div>
-
+            
             </div>
+            
 
 
         </div>
@@ -788,94 +786,107 @@
 <section class="bg-black">
  
 
-    <section class="flex items-center justify-center bg-black -mx-24 h-[120vh] rounded-t-[50px] -mt-4 z-20">
-        <div class="flex w-4/5 bg-white shadow-lg rounded-lg h-[120vh]">
-            <!-- Left Side (Smaller) -->
-            <div class="w-1/5 bg-black p-6 text-white flex items-baseline justify-start">
-                <!-- Shopify Icon -->
-                <img src="../images/bshopify.jpg" alt="Shopify Icon" class="w-16 h-16">
-            </div>
-            <!-- Right Side (Larger) -->
-            <div class="w-4/5 bg-black p-6">
-                <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-28 px-24">
-                    <div>
-                        <h3 class="text-white font-bold mb-4 leading-9">Shopify</h3>
-                        <ul>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">About</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Careers</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Investors</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Press and Media</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Partners</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Affiliates</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Legal</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Service Status</a></li>
-                        </ul>
-                    </div>
-    
-                    <div>
-                        <h3 class="text-white font-bold mb-4 leading-9">Support</h3>
-                        <ul>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Merchant Support</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Help Center</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Hire a Partner</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Academy</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Community</a></li>
-                        </ul>
-                    </div>
-    
-                    <div>
-                        <h3 class="text-white font-bold mb-4 leading-9">Developers</h3>
-                        <ul>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify.dev</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">API Documentation</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Dev Degree</a></li>
-                        </ul>
-                    </div>
-    
-                    <div>
-                        <h3 class="text-white font-bold mb-4 leading-9">Products</h3>
-                        <ul>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shop</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shop Pay</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Plus</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Fulfillment Network</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Linkpop</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify for Enterprise</a></li>
-                        </ul>
-                    </div>
-    
-                    <div>
-                        <h3 class="text-white font-bold mb-4 leading-9">Global Impact</h3>
-                        <ul>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Sustainability</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Social Impact</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Build Black</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Build Native</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Research</a></li>
-                        </ul>
-                    </div>
-    
-                    <div>
-                        <h3 class="text-white font-bold mb-4 leading-9">Solutions</h3>
-                        <ul>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Online Store Builder</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Plus</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Website Builder</a></li>
-                            <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Ecommerce Website</a></li>
-                        </ul>
-                    </div>
+   <section class="flex items-center justify-center bg-black -mx-6 md:-mx-24 h-auto md:h-[120vh] rounded-t-[50px] -mt-4 z-20">
+    <div class="flex flex-col md:flex-row w-full md:w-4/5 bg-white shadow-lg rounded-lg h-auto md:h-[120vh]">
+        
+        <!-- Left Side (Smaller) -->
+        <div class="w-full md:w-1/5 bg-black p-6 text-white flex items-center justify-center md:items-baseline md:justify-start">
+            <!-- Shopify Icon -->
+            <img src="../images/bshopify.jpg" alt="Shopify Icon" class="w-16 h-16">
+        </div>
+        
+        <!-- Right Side (Larger) -->
+        <div class="w-full md:w-4/5 bg-black p-6">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 px-8 md:px-24">
+                
+                <!-- Shopify Section -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 leading-9">Shopify</h3>
+                    <ul>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">About</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Careers</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Investors</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Press and Media</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Partners</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Affiliates</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Legal</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-9">Service Status</a></li>
+                    </ul>
                 </div>
+        
+                <!-- Support Section -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 leading-9">Support</h3>
+                    <ul>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Merchant Support</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Help Center</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Hire a Partner</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Academy</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Community</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Developers Section -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 leading-9">Developers</h3>
+                    <ul>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify.dev</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">API Documentation</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Dev Degree</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Products Section -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 leading-9">Products</h3>
+                    <ul>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shop</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shop Pay</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Plus</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Fulfillment Network</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Linkpop</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify for Enterprise</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Global Impact Section -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 leading-9">Global Impact</h3>
+                    <ul>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Sustainability</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Social Impact</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Build Black</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Build Native</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Research</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Solutions Section -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 leading-9">Solutions</h3>
+                    <ul>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Online Store Builder</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Shopify Plus</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Website Builder</a></li>
+                        <li><a href="#" class="text-white hover:text-white hover:underline leading-8">Ecommerce Website</a></li>
+                    </ul>
+                </div>
+        
             </div>
         </div>
-    </section>
+        
+    </div>
+</section>
+
+    
     
    
-   <!-- New Container with Two Items -->
+   
 <!-- New Container with Two Items -->
-<div class="bg-black p-8 mx-8 flex border-t border-gray-400">
+<div class="bg-black p-8 mx-8 flex flex-col md:flex-row border-t border-gray-400">
     <!-- Left Item (Larger) -->
     <div class="md:w-2/3 w-full p-4">
-        <ul class="flex space-x-6 mt-4">
+        <ul class="flex flex-row flex-wrap space-x-6 mt-4">
             <li><a href="#" class="text-white hover:underline">USA</a></li>
             <li><a href="#" class="text-white hover:underline">Terms of Service</a></li>
             <li><a href="#" class="text-white hover:underline">Privacy Policy</a></li>
@@ -884,51 +895,21 @@
         </ul>
     </div>
     
+
     <!-- Right Item (Smaller) -->
     <div class="md:w-1/3 w-full p-4 bg-black rounded-lg">
-        <!-- <div class="flex space-x-4 p-4"> -->
-            <ul class="flex space-x-6 mt-4">
-                <li>
-                    <a href="#">
-                        <img src="../images/facebook.webp" alt="Icon 1" class="w-6 h-6">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/TwitterX.png" alt="Icon 2" class="w-6 h-6">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/YouTube.png" alt="Icon 3" class="w-6 h-6">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/Instagram.png" alt="Icon 4" class="w-6 h-6">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/TikTok.png" alt="Icon 5" class="w-6 h-6">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/LinkedIn.png" alt="Icon 6" class="w-6 h-6">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/Pinterest.png" alt="Icon 7" class="w-6 h-6">
-                    </a>
-                </li>
-            </ul>
-            
-        <!-- </div> -->
+        <ul class="flex flex-wrap justify-center space-x-6 mt-4">
+            <li><a href="#"><img src="../images/facebook.webp" alt="Icon 1" class="w-6 h-6"></a></li>
+            <li><a href="#"><img src="../images/TwitterX.png" alt="Icon 2" class="w-6 h-6"></a></li>
+            <li><a href="#"><img src="../images/YouTube.png" alt="Icon 3" class="w-6 h-6"></a></li>
+            <li><a href="#"><img src="../images/Instagram.png" alt="Icon 4" class="w-6 h-6"></a></li>
+            <li><a href="#"><img src="../images/TikTok.png" alt="Icon 5" class="w-6 h-6"></a></li>
+            <li><a href="#"><img src="../images/LinkedIn.png" alt="Icon 6" class="w-6 h-6"></a></li>
+            <li><a href="#"><img src="../images/Pinterest.png" alt="Icon 7" class="w-6 h-6"></a></li>
         </ul>
     </div>
 </div>
+
 
 
 
